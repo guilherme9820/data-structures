@@ -3,20 +3,18 @@ package data.sorting.stable;
 import java.util.List;
 
 import data.utils.Clone;
+import data.utils.Validation;
+
 import java.lang.reflect.InvocationTargetException;
 
 public class InsertionSort {
 
-    private <E extends Comparable<E>> boolean isLesser(E element1, E element2) {
-        return element1.compareTo(element2) < 0;
-    }
-
-    public <S extends List<E>, E extends Comparable<E>> S sort(S iterable)
+    public <E extends Comparable<E>> List<E> sort(List<E> iterable)
             throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
 
         int size = iterable.size();
 
-        S newList = Clone.clone(iterable, true);
+        List<E> newList = Clone.clone(iterable, true);
 
         E backwardElement, pivot;
         int backwardIndex;
@@ -24,7 +22,7 @@ public class InsertionSort {
             backwardIndex = forwardIndex - 1;
             pivot = newList.get(forwardIndex);
             backwardElement = newList.get(backwardIndex);
-            while (this.isLesser(pivot, backwardElement)) {
+            while (Validation.isLess(pivot, backwardElement)) {
                 // Desloca o elemento anterior uma posição para frente
                 newList.set(backwardIndex + 1, backwardElement);
                 backwardIndex -= 1;

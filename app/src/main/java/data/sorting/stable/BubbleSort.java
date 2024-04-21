@@ -4,13 +4,14 @@ import java.util.List;
 
 import java.lang.reflect.InvocationTargetException;
 import data.utils.Clone;
+import data.utils.Validation;
 
 public class BubbleSort {
 
-    public <S extends List<E>, E extends Comparable<E>> S sort(S iterable)
+    public <E extends Comparable<E>> List<E> sort(List<E> iterable)
             throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
 
-        S newList = Clone.clone(iterable, true);
+        List<E> newList = Clone.clone(iterable, true);
 
         int size = newList.size();
 
@@ -20,7 +21,7 @@ public class BubbleSort {
             for (int i = 0; i < size - index - 1; i++) {
                 currentElement = newList.get(i);
                 nextElement = newList.get(i + 1);
-                if (currentElement.compareTo(nextElement) > 0) {
+                if (Validation.isGreater(currentElement, nextElement)) {
                     newList.set(i, nextElement);
                     newList.set(i + 1, currentElement);
                 }

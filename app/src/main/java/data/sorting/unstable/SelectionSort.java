@@ -2,14 +2,16 @@ package data.sorting.unstable;
 
 import java.lang.reflect.InvocationTargetException;
 import data.utils.Clone;
+import data.utils.Validation;
+
 import java.util.List;
 
 public class SelectionSort {
 
-    public <S extends List<E>, E extends Comparable<E>> S sort(S iterable)
+    public <E extends Comparable<E>> List<E> sort(List<E> iterable)
             throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
 
-        S newList = Clone.clone(iterable, true);
+        List<E> newList = Clone.clone(iterable, true);
 
         int size = newList.size();
 
@@ -19,7 +21,7 @@ public class SelectionSort {
             smallestElement = newList.get(outer);
             for (int inner = outer + 1; inner < size; inner++) {
                 currentElement = newList.get(inner);
-                if ((smallestElement.compareTo(currentElement)) > 0) {
+                if (Validation.isGreater(smallestElement, currentElement)) {
                     newList.set(outer, currentElement);
                     newList.set(inner, smallestElement);
                     smallestElement = currentElement;

@@ -3,12 +3,9 @@ package data.sorting.stable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import data.utils.Clone;
+import data.utils.Validation;
 
 public class MergeSort {
-
-    public <E extends Comparable<E>> boolean isLesser(E element1, E element2) {
-        return element1.compareTo(element2) < 0;
-    }
 
     private <E extends Comparable<E>> List<E> merge(List<E> leftList, List<E> rightList)
             throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
@@ -22,7 +19,7 @@ public class MergeSort {
         while (leftIndex < leftList.size() && rightIndex < rightList.size()) {
             E leftElement = leftList.get(leftIndex);
             E rightElement = rightList.get(rightIndex);
-            if (this.isLesser(rightElement, leftElement)) {
+            if (Validation.isLess(rightElement, leftElement)) {
                 merged.add(rightElement);
                 rightIndex += 1;
             } else {
@@ -45,7 +42,7 @@ public class MergeSort {
         return merged;
     }
 
-    private <E extends Comparable<E>> List<E> divide(int lowerBound, int upperBound, List<E> iterable)
+    private <E extends Comparable<E>> List<E> split(int lowerBound, int upperBound, List<E> iterable)
             throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         // System.out.println("INDICES: " + lowerBound + " " + upperBound);
         int size = upperBound - lowerBound + 1;
@@ -60,8 +57,8 @@ public class MergeSort {
         int border = (size - 1) / 2 + 1;
         // System.out.println("SIZE: " + size + " BORDER: " + border);
 
-        List<E> leftPart = this.divide(lowerBound, lowerBound + border - 1, iterable);
-        List<E> rightPart = this.divide(lowerBound + border, upperBound, iterable);
+        List<E> leftPart = this.split(lowerBound, lowerBound + border - 1, iterable);
+        List<E> rightPart = this.split(lowerBound + border, upperBound, iterable);
 
         return this.merge(leftPart, rightPart);
 
@@ -72,7 +69,7 @@ public class MergeSort {
 
         List<E> newList = Clone.clone(iterable, true);
 
-        return this.divide(0, iterable.size() - 1, newList);
+        return this.split(0, iterable.size() - 1, newList);
     }
 
 }
