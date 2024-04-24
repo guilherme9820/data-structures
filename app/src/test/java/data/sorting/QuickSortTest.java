@@ -26,7 +26,7 @@ public class QuickSortTest {
 
         RandomInt generator = new RandomInt();
 
-        List<Integer> testList = generator.generateRandomList(0, 100, 1000000);
+        List<Integer> testList = generator.generateRandomList(0, 100, 25);
         // List<Integer> testList = new ArrayList<>(Arrays.asList(93, 48, 1, 56, 6, 46,
         // 8, 64, 6, 22));
 

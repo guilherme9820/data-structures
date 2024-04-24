@@ -4,7 +4,7 @@ import data.structures.util.Node;
 
 public class BinaryTree<E extends Comparable<E>> implements IBinaryTree<E> {
 
-    private Node<E> root = null;
+    protected Node<E> root = null;
 
     public Node<E> getRoot() {
         return this.root;

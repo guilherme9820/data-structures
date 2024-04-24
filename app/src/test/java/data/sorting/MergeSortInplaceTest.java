@@ -3,7 +3,7 @@ package data.sorting;
 
 import org.junit.jupiter.api.Test;
 
-import data.sorting.stable.MergeSort;
+import data.sorting.stable.MergeSortInplace;
 import data.utils.Clone;
 import data.utils.Random.RandomInt;
 
@@ -14,14 +14,14 @@ import java.util.Collections;
 import java.time.Instant;
 import java.time.Duration;
 
-public class MergeSortTest {
+public class MergeSortInplaceTest {
 
     @Test
     void sort()
             throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
 
         System.out.println(this.getClass().getSimpleName());
-        MergeSort insertionSort = new MergeSort();
+        MergeSortInplace mergeSortInplace = new MergeSortInplace();
 
         RandomInt generator = new RandomInt();
 
@@ -36,7 +36,7 @@ public class MergeSortTest {
         List<Integer> newList = Clone.clone(testList, true);
         try {
             start = Instant.now();
-            newList = insertionSort.sort(testList);
+            newList = mergeSortInplace.sort(testList);
             finish = Instant.now();
             elapsedTime = Duration.between(start, finish).toString();
         } catch (Exception e) {

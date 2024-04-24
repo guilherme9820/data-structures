@@ -4,7 +4,7 @@ import javax.xml.bind.PropertyException;
 
 import data.structures.util.Node;
 
-public class SinglyLinkedList<E> implements IList<E> {
+public class SinglyLinkedList<E extends Comparable<E>> implements IList<E> {
 
     private Node<E> head = null;
     private Node<E> tail = null;

@@ -3,6 +3,8 @@
  */
 package data.structures;
 
+import java.lang.constant.ConstantDesc;
+
 import data.structures.binaryTree.AVLTree;
 import data.structures.binaryTree.BinaryTree;
 import data.structures.binaryTree.IBinaryTree.SearchMode;
@@ -10,39 +12,39 @@ import data.structures.list.SinglyLinkedList;
 
 public class App {
 
-    static void testLinkedList() {
-        SinglyLinkedList<Object> linkedlist = new SinglyLinkedList<>();
+    // static void testLinkedList() {
+    // SinglyLinkedList<Object> linkedlist = new SinglyLinkedList<>();
 
-        System.out.println("APPEND");
-        linkedlist.append("primeiro");
-        linkedlist.append(2);
-        linkedlist.append(true);
-        linkedlist.append(40);
-        linkedlist.printList();
-        System.out.println("SIZE: " + linkedlist.size);
-        System.out.println("HEAD: " + linkedlist.getHead());
+    // System.out.println("APPEND");
+    // linkedlist.append("primeiro");
+    // linkedlist.append(2);
+    // linkedlist.append(true);
+    // linkedlist.append(40);
+    // linkedlist.printList();
+    // System.out.println("SIZE: " + linkedlist.size);
+    // System.out.println("HEAD: " + linkedlist.getHead());
 
-        System.out.println("POP");
-        System.out.println("REMOVED VALUE: " + linkedlist.pop(2));
-        linkedlist.printList();
-        System.out.println("REMOVED VALUE: " + linkedlist.pop(0));
-        linkedlist.printList();
-        System.out.println("REMOVED VALUE: " + linkedlist.pop(90));
-        System.out.println("SIZE: " + linkedlist.size);
-        System.out.println("HEAD: " + linkedlist.getHead());
+    // System.out.println("POP");
+    // System.out.println("REMOVED VALUE: " + linkedlist.pop(2));
+    // linkedlist.printList();
+    // System.out.println("REMOVED VALUE: " + linkedlist.pop(0));
+    // linkedlist.printList();
+    // System.out.println("REMOVED VALUE: " + linkedlist.pop(90));
+    // System.out.println("SIZE: " + linkedlist.size);
+    // System.out.println("HEAD: " + linkedlist.getHead());
 
-        System.out.println("PREPEND");
-        linkedlist.prepend("test");
-        linkedlist.prepend(22);
-        linkedlist.prepend(90);
-        linkedlist.printList();
-        System.out.println("SIZE: " + linkedlist.size);
-        System.out.println("HEAD: " + linkedlist.getHead());
+    // System.out.println("PREPEND");
+    // linkedlist.prepend("test");
+    // linkedlist.prepend(22);
+    // linkedlist.prepend(90);
+    // linkedlist.printList();
+    // System.out.println("SIZE: " + linkedlist.size);
+    // System.out.println("HEAD: " + linkedlist.getHead());
 
-        System.out.println("REVERSED");
-        linkedlist.reverse().printList();
+    // System.out.println("REVERSED");
+    // linkedlist.reverse().printList();
 
-    }
+    // }
 
     static void testBinaryTree() {
 
